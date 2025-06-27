@@ -6,12 +6,23 @@
     <title>Document</title>
   </head>
   <body>
-    <h1>Toutes les taches pour vivre mieux</h1>
+    <h1>Tâches de gestion de projet</h1>
+
+    <form method="POST" action="/todo/create">
+      <input
+        type="text"
+        name="title"
+        placeholder="Titre de la tâche"
+        required
+      />
+      <input type="text" name="firstname" placeholder="Prénom" required />
+      <button type="submit">Ajouter la tâche</button>
+    </form>
 
     {% for todo in todos %}
     <h2>{{ todo.title }} (attribuée à {{ todo.firstname }})</h2>
     {% else %}
-    <p>Manger un donut à la fraise</p>
+    <p>Aucune tâche. Manger un donut à la fraise 😋</p>
     {% endfor %}
   </body>
 </html>

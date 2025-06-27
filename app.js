@@ -12,6 +12,7 @@ app.set("view engine", "twig");
 app.set("views", "./views");
 
 app.use(bodyParser.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Création de la base de données
 
@@ -34,13 +35,7 @@ app.post("/todo/create", (req, res) => {
     [title, firstname],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
-      res
-        .status(201)
-        .json({
-          message: `la tache ${title} a été attribué à ${firstname}`,
-          id: this.lastID,
-          title,
-        });
+      res.redirect("/");
     }
   );
 });
