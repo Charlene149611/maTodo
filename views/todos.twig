@@ -15,10 +15,11 @@
             {% for row in rows %}
             <div class="card">
                 <p>
-                
-                    <input type="checkbox" {% if row.done==1 %}checked{% endif %} onchange="modifierTache(this)" data-taskid={{row.id}}>
-              
-                {{row.title}} <em> ({{row.firstName}})</em>
+
+                    <input type="checkbox" {% if row.done==1 %}checked{% endif %} onchange="modifierTache(this)"
+                        data-taskid={{row.id}}>
+
+                    {{row.title}} <em> ({{row.firstName}})</em>
                 </p>
                 <button onclick="supprimerTache(this)" data-taskid={{row.id}}>Supprimer</button>
             </div>
