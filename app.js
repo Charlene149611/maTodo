@@ -34,13 +34,11 @@ app.post("/todo/create", (req, res) => {
     [title, firstname],
     function (err) {
       if (err) return res.status(500).json({ error: err.message });
-      res
-        .status(201)
-        .json({
-          message: `la tache ${title} a été attribué à ${firstname}`,
-          id: this.lastID,
-          title,
-        });
+      res.status(201).json({
+        message: `la tache ${title} a été attribué à ${firstname}`,
+        id: this.lastID,
+        title,
+      });
     }
   );
 });
@@ -49,7 +47,7 @@ app.post("/todo/create", (req, res) => {
 app.get("/", (req, res) => {
   db.all("SELECT * FROM todos ORDER BY created_at DESC", (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.render("index", { rows });
+    res.render("index", { todos: rows });
   });
 });
 

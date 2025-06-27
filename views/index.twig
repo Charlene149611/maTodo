@@ -9,7 +9,7 @@
     <h1>Toutes les taches pour vivre mieux</h1>
 
     {% for todo in todos %}
-    <h2>{{ todo.title }}</h2>
+    <h2>{{ todo.title }} (attribuée à {{ todo.firstname }})</h2>
     {% else %}
     <p>Manger un donut à la fraise</p>
     {% endfor %}
