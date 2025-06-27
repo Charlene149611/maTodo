@@ -18,7 +18,7 @@ app.set("view engine", "twig");
 app.set("views", "./views");
 
 // Créer la base de donnée
-const db = new sqlite3.Database("./todo.db");
+const db = new sqlite3.Database("./todos.db");
 
 // Création de la table
 db.run(`CREATE TABLE IF NOT EXISTS todos(
