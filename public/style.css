@@ -1,0 +1,32 @@
+body {
+    background: linear-gradient(135deg, rgb(0, 0, 0), rgb(40, 41, 38));
+    color: white;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.card {
+    background: linear-gradient(135deg, rgb(145, 255, 2), rgb(225, 238, 178));
+    color:black;
+
+    width: 22em;
+
+    border: 1px solid;
+    border-radius: 0.5em;
+
+    p {
+        font-weight: bold;
+
+        em {
+            font-weight: normal;
+            align-self: end;
+        }
+    }
+}

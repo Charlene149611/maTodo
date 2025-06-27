@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <section class="taches">
+        <h1>Todo list</h1>
+        <div class="container">
+            {% for row in rows %}
+            <div class="card">
+                <p>
+                    <input type="checkbox" checked="{{row.done}}">
+                    {{row.title}} <em> ({{row.firstName}})</em>
+                </p>
+            </div>
+            {% else %}
+            <p>Aucune tâche</p>
+            {% endfor %}
+        </div>
+    </section>
+    <section class="nouvelleTache">
+        <h2>Ajouter une tâche</h2>
+        <form action="/todos/create" method="post">
+            <input type="text" name="title" placeholder="Entrez le nom de la tâche" required>
+            <input type="text" name="firstName" placeholder="A qui souhaitez-vous attribuer cette tâche" required>
+            <input type="submit" value="Ajouter">
+        </form>
+
+    </section>
+</body>
+
+</html>
