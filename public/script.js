@@ -1,6 +1,7 @@
 // Change le statut de la tâche
 const modifierTache = (e) => {
-    alert("modifier tache");
+    const id = e.value;
+    console.log(id);
 };
 
 // Supprime la tâche et rafraichit la page

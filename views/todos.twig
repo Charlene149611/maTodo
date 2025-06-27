@@ -15,9 +15,9 @@
             {% for row in rows %}
             <div class="card">
                 <p>
-                <form onsubmit="modifierTache()"></form>
-                    <input type="checkbox" {% if row.done==1 %}checked{% endif %} onchange="this.form.submit()">
-                </form>
+                
+                    <input type="checkbox" {% if row.done==1 %}checked{% endif %} onchange="modifierTache(this)" taskId={{row.id}}>
+              
                 {{row.title}} <em> ({{row.firstName}})</em>
                 </p>
                 <button onclick="supprimerTache(this)" value={{row.id}}>Supprimer</button>
