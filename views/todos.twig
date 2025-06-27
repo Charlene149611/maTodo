@@ -15,7 +15,7 @@
             {% for row in rows %}
             <div class="card">
                 <p>
-                    <input type="checkbox" checked={{row.done === 1 ? true : false}}">
+                    <input type="checkbox" {% if row.done==1 %}checked{% endif %}>
                     {{row.title}} <em> ({{row.firstName}})</em>
                 </p>
             </div>
@@ -28,7 +28,8 @@
         <h2>Ajouter une tâche</h2>
         <form action="/todos/create" method="post">
             <input type="text" name="title" placeholder="Entrez le nom de la tâche" required autocomplete="off">
-            <input type="text" name="firstName" placeholder="A qui souhaitez-vous attribuer cette tâche" required autocomplete="off">
+            <input type="text" name="firstName" placeholder="A qui souhaitez-vous attribuer cette tâche" required
+                autocomplete="off">
             <input type="submit" value="Ajouter">
         </form>
 
