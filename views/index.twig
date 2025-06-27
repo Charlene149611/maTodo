@@ -3,10 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>API TODO</title>
+    <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <h1>Tâches de gestion de projet</h1>
+    <h1>API TODO</h1>
 
     <form method="POST" action="/todo/create">
       <input
@@ -19,8 +20,18 @@
       <button type="submit">Ajouter la tâche</button>
     </form>
 
-    {% for todo in todos %}
-    <h2>{{ todo.title }} (attribuée à {{ todo.firstname }})</h2>
+    {% for todo in rows %}
+    <div>
+      <strong>{{ todo.title }}</strong> - {{ todo.firstname }}
+    </div>
+    <form
+      method="POST"
+      action="/index/{{ todo.id }}/delete"
+      style="display: inline"
+      onsubmit="return confirm('Supprimer cette tâche ?')"
+    >
+      <button type="submit" data-taskid="{{ todo.id }}">Supprimer</button>
+    </form>
     {% else %}
     <p>Aucune tâche. Manger un donut à la fraise 😋</p>
     {% endfor %}

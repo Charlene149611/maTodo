@@ -1,0 +1,114 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+h1, h2 {
+  color: #58a6ff;
+  text-align: center;
+}
+
+form {
+  background-color: #161b22;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 2px #2381ff80;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+form input[type="text"] {
+  background-color: #0d1117;
+  border: 1.5px solid #30363d;
+  border-radius: 8px;
+  color: #c9d1d9;
+  font-size: 1rem;
+  padding: 10px 15px;
+  flex: 1 1 250px;
+  transition: border-color 0.3s ease;
+}
+
+form input[type="text"]::placeholder {
+  color: #8b949e;
+}
+
+form input[type="text"]:focus {
+  border-color: #58a6ff;
+  outline: none;
+  box-shadow: 0 0 8px #58a6ffaa;
+}
+
+form button {
+  background: linear-gradient(135deg, #2381ff, #58a6ff);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  flex: 0 0 auto;
+  box-shadow: 0 4px 8px #2381ffaa;
+}
+
+form button:hover {
+  background: linear-gradient(135deg, #1c6de2, #3d8fff);
+}
+
+/* Style pour le h2 contenant la tâche + bouton supprimer */
+h2 {
+  background-color: #161b22;
+  padding: 15px 20px;
+  margin: 10px 0;
+  border-left: 6px solid #2381ff;
+  border-radius: 12px;
+  box-shadow: 0 0 10px 2px #2381ff80;
+  color: #c9d1d9;
+
+  position: relative;
+  padding-right: 120px; /* espace pour bouton */
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+/* Formulaire inline du bouton supprimer */
+h2 form {
+  display: inline;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+}
+
+/* Style du bouton supprimer */
+h2 form button {
+  background: linear-gradient(135deg, #390a04, #881408);
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 8px #c0392baa;
+  transition: background 0.3s ease;
+}
+
+h2 form button:hover {
+  background: linear-gradient(135deg, #c0392b, #e74c3c);
+}
+
+p {
+  text-align: center;
+  color: #8b949e;
+  font-style: italic;
+}

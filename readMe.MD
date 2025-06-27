@@ -11,11 +11,13 @@ STRUCTURE DU PROJET
 
 matodo/
 ├── node_modules/
+├── public/
+│   └── style.css
 ├── views/
-│ └── index.twig
-├──.env
+│   └── index.twig
+├── .env
 ├── app.js
-├── packages-lock.json
+├── package-lock.json
 ├── package.json  
 ├── readMe.MD
 ├── todo.db
