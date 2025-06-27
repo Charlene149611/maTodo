@@ -9,7 +9,7 @@ const app = express();
 const PORT = process.env.PORT || 3009;
 
 // Middlewares
-// app.use(bodyParser.json());  //  pour parser (afficher) le corps des requêtes JSON
+app.use(express.json()); // pour parser le corps des requêtes JSON
 app.use(express.static("public")); //pour définir /public comme dossier statique
 app.use(express.urlencoded({ extended: true })); // pour parser les formulaires HTML
 
@@ -64,15 +64,15 @@ app.delete("/todos/delete/:id", (req, res) => {
     });
 });
 
-// Modifier une tâche
+// Modifier le status d'une tâche
 app.put("/todos/put/:id", (req, res) => {
     //NE PAS OUBLIER LE PREMIER SLASH !!!!!
     const { id } = req.params;
-    const { title, firstName, done } = req.body;
+    const { done } = req.body;
 
     db.run(
-        `UPDATE todos SET title = ?, firstName = ?, done = ? WHERE id = ?`,
-        [title, firstName, done ? 1 : 0, id],
+        `UPDATE todos SET done = ? WHERE id = ?`,
+        [done ? 1 : 0, id],
         function (err) {
             if (err) return res.status(500).json({ error: err.message });
             res.status(201).json({ update: this.changes });
