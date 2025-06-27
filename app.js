@@ -49,7 +49,7 @@ app.post("/todo/create", (req, res) => {
 app.get("/", (req, res) => {
   db.all("SELECT * FROM todos ORDER BY created_at DESC", (err, rows) => {
     if (err) return res.status(500).json({ error: err.message });
-    res.render("index", { rows });
+    res.render("index", { todos: rows });
   });
 });
 
