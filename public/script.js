@@ -1,14 +1,18 @@
 // Change le statut de la tâche
 const modifierTache = (e) => {
+    // Récupère les éléments
     const id = e.dataset.taskid;
     const done = e.checked;
     console.log(id, done);
-    fetch(`/todos/put/${id}`, {
-        method: "PUT",
+
+    // Envoi la requête
+    fetch(`/todos/patch/${id}`, {
+        method: "PATCH",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ done: done }),
     })
-        .then(() => console.log('ok'))  // Inutile de recharger la page
+        .then((res) => res.json())
+        .then((data) => console.log(data))
         .catch((err) => console.error(err));
 };
 
@@ -17,6 +21,10 @@ const supprimerTache = (e) => {
     const id = e.dataset.taskid;
     console.log(id);
     fetch(`/todos/delete/${id}`, { method: "DELETE" })
-        .then(() => location.reload())
+        .then((res) => res.json())
+        .then((data) => {
+            console.log(data);
+            location.reload();
+        })
         .catch((err) => console.error(err));
 };
