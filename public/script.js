@@ -24,7 +24,10 @@ const supprimerTache = (e) => {
         .then((res) => res.json())
         .then((data) => {
             console.log(data);
-            location.reload();
+
+            // Supprime l'élément de la tâche du DOM sans recharger la page
+            const card = e.closest(".card");
+            if (card) card.remove();
         })
         .catch((err) => console.error(err));
 };
