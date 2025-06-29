@@ -1,7 +1,6 @@
 import express from "express";
 import "dotenv/config";
 import sqlite3 from "sqlite3";
-import bodyParser from "body-parser";
 // import twig from "twig";
 
 // Créer le serveur et récupérer le port dans le .env
@@ -51,7 +50,7 @@ app.post("/todos/create", (req, res) => {
 app.get("/", (req, res) =>
     db.all(`SELECT * FROM todos ORDER BY created_at DESC`, (err, rows) => {
         if (err) return res.status(500).json({ error: err.message });
-        res.render("todos", { rows }); // on rend le résultat dans twig
+        res.render("todos.twig", { rows }); // on rend le résultat dans twig
     })
 );
 
